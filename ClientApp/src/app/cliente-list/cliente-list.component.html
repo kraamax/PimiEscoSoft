@@ -1,0 +1,63 @@
+<html>
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+  
+      
+<br>
+    <div >
+        <h1 style="text-align: center">Consulta Clientes</h1>
+
+   
+  </div>
+  <div class="container" > 
+    <div class="row ">
+       
+     
+        <div class="col-lg-6 ">
+    <div class="form-group ">
+        <label for="identificacion">Identificacion</label> 
+      
+    </div>
+  </div>
+</div>
+  
+<div class="row ">
+    <div class="col-lg-5 ">
+<input type="text" class="form-control form-control-lg" placeholder="Identificacion" name="identificacion" id="identificacion"    style=" width: 200px; height:50px" >
+</div>
+<div class="col-lg-1 "></div>
+<div class="col-lg-5 ">
+ 
+  <input type="button" class="btn btn-primary  btn-block" value="Consultar" name="" id="BtnConsultar"  style="width: 200px; height:50px ">
+ 
+</div>
+
+</div>
+<br>
+<br>
+<table class="table">
+    <tr>
+      <th>Identificación</th>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Sexo</th>
+      <th>Dirección</th>
+      <th>Teléfono</th>
+      <th>Correo</th>
+      <th>Ver</th>
+    </tr>
+<tr *ngFor="let c of clientes">
+      <td>{{c.id}}</td>
+      <td>{{c.nombres}}</td>
+      <td>{{c.apellidos}}</td>
+      <td>{{c.sexo}}</td>
+      <td>{{c.direccion}}</td>
+      <td>{{c.telefono}}</td>
+      <td>{{c.email}}</td>
+      <td><a routerLink="/clienteedit/{{c.id}}">ver</a></td>
+    </tr>
+       
+      </table>

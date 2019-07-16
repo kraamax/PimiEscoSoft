@@ -1,0 +1,75 @@
+<div *ngIf="cliente">
+    <div class="container">
+        <h1 >Detalle Cliente</h1>
+        </div>
+    <div class="row">
+        <div class="col-lg-2 ">
+          
+          
+   </div>
+   
+  <div  class="col-lg-10">
+  <br>
+
+ 
+  <div class="form-group">
+  <label>Identificacion:
+  {{cliente.id}}
+  </label> 
+  </div>
+  <div class="form-group">
+  <label>Nombres:
+  <input [(ngModel)]="cliente.nombres"  class="form-control" style="width: 240px; height:40px " placeholder="digite titulo" type="text"/>
+  </label>
+  </div>
+  <div class="form-group">
+  <label>Apellidos:
+  <input [(ngModel)]="cliente.apellidos" class="form-control" style="width: 240px; height:40px " placeholder="digite descripción " type="text" />
+  </label>
+  </div>
+  <div class="form-group">          
+    <label for="sexo">Seleccione su sexo</label> 
+    <select class="form-control" id="sexo" name="sexo" [(ngModel)]="cliente.sexo"  > 
+        <option value="Masculino">Masculino</option> 
+        <option value="Femenino">Femenino</option>
+    </select> 
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+<input type="email" class="form-control form-control-lg" placeholder="TuEmail@email.com" name="email" [(ngModel)]="cliente.email" >
+</div>
+
+<div class="form-gro up">
+        <label for="telefono">Telefono</label>
+    <input type="email" class="form-control form-control-lg" placeholder="Telefono" name="telefono" id="telefono" [(ngModel)]="cliente.telefono" >
+  </div>
+  <div class="form-group">
+        <label for="direccion">Direccion</label>
+    <input type="email" class="form-control form-control-lg" placeholder="Direccion" name="direccion" id="direccion" [(ngModel)]="cliente.direccion" >
+  </div>
+
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-2 ">
+      
+      
+</div>
+<div class="col-lg-4 ">
+
+<div class="form-group">
+    <button (click)="update()" class="btn btn-primary">Actualizar</button>
+  </div>
+</div>
+<div class="col-lg-2 ">
+      
+      
+  </div>
+  <div class="col-lg-4 ">
+  <div class="form-group">
+    <button (click)="delete()" class="btn btn-primary">Eliminar</button>
+  </div>
+    </div>
+  </div>
+</div>

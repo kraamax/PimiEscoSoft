@@ -1,0 +1,84 @@
+<html>
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+  
+      
+<br>
+    <div >
+        <h1 style="text-align: center">Factura</h1>
+
+   
+  </div>
+  <div class="container" > 
+    <div class="row ">
+       
+     
+        <div class="col-lg-5 ">
+    <div class="form-group ">
+        <label for="nombres">No. Factura</label> 
+      <input type="text" [(ngModel)]="factura.id"  class="form-control form-control-lg"   placeholder="" name="numeroFactura" id="numeroFactura"     >
+    </div>
+  </div> 
+  <div class="col-lg-5 ">
+      
+    </div>
+    <div class="col-lg-5 ">
+        <div class="form-group ">
+            <label for="identificacion">Identificación</label> 
+          <input type="number"  [(ngModel)]="factura.cliente.id"  class="form-control form-control-lg" placeholder="Identificacion" name="identificacion" id="identificacion"     >
+        </div>
+       
+            <div class="form-group ">
+                <label for="telefono">Teléfono</label> 
+              <input type="text"  class="form-control form-control-lg" [(ngModel)]="factura.cliente.telefono" placeholder="Telefono" name="telefono" id="telefono"     >
+            </div>
+      
+      </div>
+      <div class="col-lg-5 ">
+          <div class="form-group ">
+              <label for="nombre">Nombre</label> 
+            <input type="text" [(ngModel)]="factura.cliente.nombres"  class="form-control form-control-lg" placeholder="Nombre" name="nombre" id="nombre"     >
+          </div>
+      
+              <div class="form-group ">
+                  <label for="direccion">Dirección</label> 
+                <input type="text" [(ngModel)]="factura.cliente.direccion"  class="form-control form-control-lg" placeholder="Direccion" name="direccion" id="direccion"     >
+              </div>
+        
+        </div>
+        
+    
+</div>
+<div class="row">
+<div class="col-lg-8 ">
+  <table class="table">
+<tr>
+    <th>id</th>
+  <th>Referencia</th>
+  <th>NombreProducto</th>
+  <th>ValorUnitario</th>
+  <th>Cantidad</th>
+  <th>ValorTotal</th>
+</tr>
+<tr *ngFor="let com of factura.compras">
+    <td>{{com.id}}</td>
+  <td>{{com.producto.id}}</td>
+  <td>{{com.producto.nombre}}</td>
+  <td>{{com.producto.precio}}</td>
+  <td>{{com.cantidad}}</td>
+  <td>{{com.subTotal}}</td>
+  
+</tr>
+   
+  </table>
+</div>
+
+</div>
+<br>
+</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -1,0 +1,58 @@
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+    <img src="assets/img/logo.png" style="width:50px; height:50px">
+    <h1  style="color:white" >PimiEscoSoft</h1>  
+
+  </nav>
+
+
+<div class="d-flex" id="wrapper">
+
+  <!-- Sidebar -->
+  <div class="bg-dark border-right" id="sidebar-wrapper">
+   
+    <div class="list-group list-group-flush">
+      <a routerLink="/clienteadd" class="list-group-item list-group-item-action bg-dark"  style="font-size: 150%; color:white "  >
+        <img src="assets/img/cliente.png">
+        Cliente
+       
+      </a>
+      <a routerLink="/factureadd"class="list-group-item list-group-item-action bg-dark" style="font-size: 150%; color:white " >
+        <img src="assets/img/factura (2).png">
+        
+            Factura
+      
+      
+      </a>
+      <a routerLink="/productoadd" class="list-group-item list-group-item-action bg-dark" style="font-size: 150%; color:white " >
+        <img src="assets/img/producto (2).png">
+        Producto
+      
+      </a>
+      <a routerLink="/clientelist" class="list-group-item list-group-item-action bg-dark" style="font-size: 150%; color:white " >
+        
+        <img src="assets/img/consulta.png">
+        Consulta Cliente</a>
+  
+    <a routerLink="/facturelist" class="list-group-item list-group-item-action bg-dark" style="font-size: 150%; color:white " >
+        
+      <img src="assets/img/consulta.png">
+      Consulta Factura</a>
+
+  <a routerLink="/productolist" class="list-group-item list-group-item-action bg-dark" style="font-size: 150%; color:white " >
+        
+    <img src="assets/img/consulta.png">
+    Consulta Producto</a>
+
+  </div>
+
+</div>
+
+    <router-outlet></router-outlet>
+   
+
+      
+     
+    
+
