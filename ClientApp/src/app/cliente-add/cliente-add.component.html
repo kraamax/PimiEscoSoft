@@ -1,79 +1,98 @@
 <html>
+
 <head>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
+
 <body>
-<br>
-      <main role="main" class="container">
-
-
-
-      <form  method="">
-          <div class="row">
-              <div class="col-lg-1 ">
-                
-         </div>
-      
-      <div class="col-lg-1 ">
-         <h1>Registrese</h1> 
-</div>
-<div  class="col-lg-10">
   <br>
-  <br>
-  <br>
+  <main role="main" class="container">
 
-  
-         <div class="form-group">
-            <label for="Identificacion">Identificación</label> 
-        <input type="text"  class="form-control form-control-lg mx-auto d-block" placeholder="identificacion" name="identificacion" id="identificacion" [(ngModel)]="cliente.id" >
-        </div>  
-      <div class="form-group ">
-          <label for="nombres">Nombres</label> 
-        <input type="text" class="form-control form-control-lg" placeholder="Nombres" name="nombres" id="nombres"  [(ngModel)]="cliente.nombres"   >
+
+
+    <form method="">
+      <div class="row">
+        <div class="col-lg-1 ">
+
+        </div>
+
+        <div class="col-lg-1 ">
+          <h1>Registrese</h1>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="Apellidos">Apellidos</label> 
-      <input type="text" class="form-control form-control-lg" placeholder="Apellidos" name="Apellidos" id="Apellidos" [(ngModel)]="cliente.apellidos"    >
-    </div>
-    
-      <div class="form-group">          
-        <label for="sexo">Seleccione su sexo</label> 
-        <select class="form-control" id="sexo" name="sexo" [(ngModel)]="cliente.sexo"  > 
-            <option value="Masculino">Masculino</option> 
-            <option value="Femenino">Femenino</option>
-        </select> 
-      </div>
-    
-      <div class="form-group">
-            <label for="email">Email</label>
-        <input type="email" class="form-control form-control-lg" placeholder="TuEmail@email.com" name="email" [(ngModel)]="cliente.email" >
-      </div>
-      
-        <div class="form-gro up">
-                <label for="telefono">Teléfono</label>
-            <input type="email" class="form-control form-control-lg" placeholder="Telefono" name="telefono" id="telefono" [(ngModel)]="cliente.telefono" >
+      <br>
+      <div class="row">
+        <div class="col-lg-4">
+
+
+          <div class="form-group">
+            <label for="Identificacion">Identificación</label>
+
+            <input type="text" class="form-control form-control-lg " placeholder="identificacion" name="identificacion"
+              id="identificacion" [(ngModel)]="cliente.id">
           </div>
           <div class="form-group">
-                <label for="direccion">Dirección</label>
-            <input type="email" class="form-control form-control-lg" placeholder="Direccion" name="direccion" id="direccion" [(ngModel)]="cliente.direccion" >
+            <label for="email">Email</label>
+            <input type="email" class="form-control form-control-lg" placeholder="TuEmail@email.com" name="email"
+              [(ngModel)]="cliente.email">
           </div>
-    
+
+
+          <div class="form-group">
+            <label for="sexo">Seleccione su sexo</label>
+            <select class="form-control" id="sexo" name="sexo" [(ngModel)]="cliente.sexo">
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+            </select>
+          </div>
+
+
+
+
+          <br>
+
+
+          <br>
+
+
+        </div>
+        <div class="col-lg-4">
+          <div class="form-group ">
+            <label for="nombres">Nombres</label>
+            <input type="text" class="form-control form-control-lg" placeholder="Nombres" name="nombres" id="nombres"
+              [(ngModel)]="cliente.nombres">
+          </div>
+
+
+          <div class="form-group">
+            <label for="direccion">Dirección</label>
+            <input type="email" class="form-control form-control-lg" placeholder="Direccion" name="direccion"
+              id="direccion" [(ngModel)]="cliente.direccion">
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label for="Apellidos">Apellidos</label>
+            <input type="text" class="form-control form-control-lg" placeholder="Apellidos" name="Apellidos"
+              id="Apellidos" [(ngModel)]="cliente.apellidos">
+          </div>
           
           <div class="form-group">
-              <button (click)="add()" class="btn btn-primary">Agregar</button>
+              <label for="telefono">Teléfono</label>
+              <input type="email" class="form-control form-control-lg" placeholder="Telefono" name="telefono"
+                id="telefono" [(ngModel)]="cliente.telefono">
+            </div>
+            <br>
+            <div class="form-group" style="text-align: right"  >
+                <button (click)="add()"  class="btn btn-primary">Agregar</button>
               </div>
-     
-      <br>
- 
-       
-       <br>
-       
+        </div>
 
-       </div>
-      </div> 
-     </form>
-    </main>
+      </div>
+    </form>
+  </main>
 
-  
+
 </body>

@@ -10,7 +10,7 @@ using PimiEscoSoftWithBackEnd.Models;
 namespace PimiEscoSoftWithBackEnd.Migrations
 {
     [DbContext(typeof(PimiEscoSoftContext))]
-    [Migration("20190714000938_PimiEscoSoftBD")]
+    [Migration("20190716223604_PimiEscoSoftBD")]
     partial class PimiEscoSoftBD
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
