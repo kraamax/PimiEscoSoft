@@ -14,9 +14,16 @@ export class ProductoAddComponent implements OnInit {
   this.producto = { id: null, nombre: '', precio:null };
   }
   add() {
-  this.productoService.addProducto(this.producto)
+    if(this.producto.id==null|| this.producto.nombre==''|| this.producto.precio==null){
+
+      alert('Rellene los campos')
+    }else{
+      this.productoService.addProducto(this.producto)
   .subscribe(task => {
   alert('Se agrego una nueva tarea')
   });
+
+    }
+  
   }
 }
