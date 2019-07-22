@@ -1,6 +1,6 @@
 <div *ngIf="producto">
   <div class="container">
-      <h1 >Detalle Cliente</h1>
+      <h1 >Detalle Producto</h1>
       </div>
   <div class="row">
       <div class="col-lg-2 ">
@@ -14,17 +14,19 @@
 
 <div class="form-group">
 <label>Referencia:
-{{producto.id}}
-</label> 
+
+</label>
+<input [(ngModel)]="cliente.id" readonly="readonly" class="form-control" 
+placeholder="digite titulo" type="text" /> 
 </div>
 <div class="form-group">
 <label>Nombre:
-<input [(ngModel)]="producto.nombre"  class="form-control" style="width: 240px; height:40px " placeholder="digite nombre" type="text"/>
+<input [(ngModel)]="producto.nombre"  class="form-control"  placeholder="digite nombre" type="text"/>
 </label>
 </div>
 <div class="form-group">
 <label>Precio:
-<input [(ngModel)]="producto.precio" class="form-control" style="width: 240px; height:40px " placeholder="digite precio " type="number" />
+<input [(ngModel)]="producto.precio" class="form-control" placeholder="digite precio " type="number" />
 </label>
 </div>
 

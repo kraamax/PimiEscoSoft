@@ -19,7 +19,7 @@
         <div class="col-lg-5 ">
     <div class="form-group ">
         <label for="nombres">No. Factura</label> 
-      <input type="text" [(ngModel)]="factura.id"  class="form-control form-control-lg"   placeholder="" name="numeroFactura" id="numeroFactura"     >
+      <input type="text" [(ngModel)]="factura.id" readonly="readonly"  class="form-control form-control-lg"   placeholder="" name="numeroFactura" id="numeroFactura"     >
     </div>
   </div> 
   <div class="col-lg-5 ">
@@ -28,24 +28,24 @@
     <div class="col-lg-5 ">
         <div class="form-group ">
             <label for="identificacion">Identificación</label> 
-          <input type="number"  [(ngModel)]="factura.cliente.id"  class="form-control form-control-lg" placeholder="Identificacion" name="identificacion" id="identificacion"     >
+          <input type="number"  [(ngModel)]="factura.cliente.id" readonly="readonly" class="form-control form-control-lg" placeholder="Identificacion" name="identificacion" id="identificacion"     >
         </div>
        
             <div class="form-group ">
                 <label for="telefono">Teléfono</label> 
-              <input type="text"  class="form-control form-control-lg" [(ngModel)]="factura.cliente.telefono" placeholder="Telefono" name="telefono" id="telefono"     >
+              <input type="text"  class="form-control form-control-lg" readonly="readonly" [(ngModel)]="factura.cliente.telefono" placeholder="Telefono" name="telefono" id="telefono"     >
             </div>
       
       </div>
       <div class="col-lg-5 ">
           <div class="form-group ">
               <label for="nombre">Nombre</label> 
-            <input type="text" [(ngModel)]="factura.cliente.nombres"  class="form-control form-control-lg" placeholder="Nombre" name="nombre" id="nombre"     >
+            <input type="text" readonly="readonly" [(ngModel)]="factura.cliente.nombres"  class="form-control form-control-lg" placeholder="Nombre" name="nombre" id="nombre"     >
           </div>
       
               <div class="form-group ">
                   <label for="direccion">Dirección</label> 
-                <input type="text" [(ngModel)]="factura.cliente.direccion"  class="form-control form-control-lg" placeholder="Direccion" name="direccion" id="direccion"     >
+                <input type="text" [(ngModel)]="factura.cliente.direccion" readonly="readonly"  class="form-control form-control-lg" placeholder="Direccion" name="direccion" id="direccion"     >
               </div>
         
         </div>
@@ -67,7 +67,7 @@
   <td>{{com.id}}</td>
   <td>{{com.producto.id}}</td>
   <td>{{com.producto.nombre}}</td>
-  <td>{{com.producto.precio}}</td>
+  <td>{{com.precio}}</td>
   <td>{{com.cantidad}}</td>
   <td>{{com.subTotal}}</td>
   

@@ -42,6 +42,11 @@
       <input type="number" [(ngModel)]="producto.precio" class="form-control form-control-lg" placeholder="Precio" name="precio" id="precio"     >
     </div>
     
+    <div class="form-group ">
+      <label for="precio">Costo</label> 
+    <input type="number" [(ngModel)]="producto.costo" class="form-control form-control-lg" placeholder="Costo" name="costo" id="costo"     >
+  </div>
+
     <div class="form-group">
       <button (click)="add()" class="btn btn-primary">Agregar</button>
       </div>
@@ -49,17 +54,7 @@
 <div class="col-lg-1 ">
             
   </div>
-<div  class="col-lg-5">
-    <table class="table">
-        <tr>
-          <th>Referencia</th>
-          <th>NombreProducto</th>
-          <th>ValorUnitario</th>
-        
-        </tr>
-      </table>
 
-</div>
   </div>
 </div>
 </body>

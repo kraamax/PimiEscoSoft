@@ -5,6 +5,8 @@ import { Producto } from '../models/producto';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of, observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MensajeModalComponent } from '../mensaje-modal/mensaje-modal.component';
 
 const httpOptions = {
 headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -16,11 +18,11 @@ headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 })
 export class ProductoService {
 
-  constructor(private http:HttpClient, @Inject('BASE_URL') private baseUrl:string) { }
+  constructor(private http:HttpClient, @Inject('BASE_URL') private baseUrl:string,private modalService: NgbModal) { }
 
   addProducto (producto: Producto): Observable<Producto> {
     return this.http.post<Producto>(this.baseUrl+'api/producto', producto, httpOptions).pipe(
-    tap((newProducto: Producto) => console.log(`added newProducto w/ id=${newProducto.id}`)),
+    tap((newProducto: Producto) => this.log(`El producto id=${newProducto.id} fue añadido`)),
     catchError(this.handleError<Producto>('addProducto'))
     );
     }
@@ -37,13 +39,13 @@ get(id: number): Observable<Producto>
 const url = `${this.baseUrl + 'api/producto'}/${id}`;
 return this.http.get<Producto>(url).pipe(
 tap(_ => console.log(`fetched producto id=${id}`)),
-catchError(this.handleError<Producto>(`getHero id=${id}`))
+catchError(this.handleError<Producto>(`Producto id=${id}`))
 );
 }
 update (producto: Producto): Observable<any> {
   const url = `${this.baseUrl + 'api/producto'}/${producto.id}`;
   return this.http.put(url, producto, httpOptions).pipe(
-  tap(_ => this.log(`updated producto id=${producto.id}`)),
+  tap(_ => this.log(`El producto id=${producto.id} fue actualizado`)),
   catchError(this.handleError<any>('producto'))
   );
   }
@@ -52,7 +54,7 @@ update (producto: Producto): Observable<any> {
     const url =  `${this.baseUrl + 'api/producto'}/${id}`;
     
     return this.http.delete<Producto>(url, httpOptions).pipe(
-    tap(_ => this.log(`deleted producto id=${id}`)),
+    tap(_ => this.log(`El producto id=${id} fue eliminado`)),
     catchError(this.handleError<Producto>('deleteProducto'))
     );
     }
@@ -65,6 +67,9 @@ private handleError<T> (operation = 'operation', result?: T) {
   }
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-  alert(`clienteService: ${message}`);
+    var mesage =this.modalService.open(MensajeModalComponent);
+mesage.componentInstance.titulo="ProductoService:";
+mesage.componentInstance.body=` ${message}`;
+
 }
 }

@@ -26,24 +26,25 @@
   
 <div class="row ">
     <div class="col-lg-5 ">
-<input type="text" class="form-control form-control-lg" placeholder="No.Factura" name="numeroFactura" id="numeroFactura"    style=" width: 200px; height:50px" >
+<input type="text" class="form-control form-control-lg" placeholder="No.Factura" name="numeroFactura" id="numeroFactura"     >
 </div>
 <div class="col-lg-1 "></div>
 <div class="col-lg-5 ">
  
-  <button  class="btn btn-primary btn-block" style="width: 200px; height:50px ">Consultar</button>  
+  <button  class="btn btn-primary btn-block" (click)="myFunction()">Consultar</button>  
  
 </div>
 
 </div>
 <br>
 <br>
-<table class="table">
+<table class="table" id="myTable">
     <tr>
       <th>Número</th>
       <th>Identificación</th>
       <th>Cliente</th>
       <th>Fecha</th>
+      <th>Total</th>
       <th>Ver</th>
      
     
@@ -55,6 +56,7 @@
       <td>{{f.cliente.nombres}}</td>
 
       <td>{{f.fecha}}</td>
+      <td>{{f.total}}</td>
       <td><a routerLink="/facturedetailslist/{{f.id}}">ver</a></td>
      
     </tr>

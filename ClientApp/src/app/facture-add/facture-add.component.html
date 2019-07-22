@@ -19,7 +19,7 @@
         <div class="col-lg-5 ">
     <div class="form-group ">
         <label for="nombres">No. Factura</label> 
-      <input type="text" class="form-control form-control-lg"   placeholder="" name="numeroFactura" id="numeroFactura"     >
+      <input type="text" class="form-control form-control-lg" readonly="readonly"  placeholder="" name="numeroFactura" id="numeroFactura"     >
     </div>
   </div> 
   <div class="col-lg-5 ">
@@ -33,19 +33,19 @@
        
             <div class="form-group ">
                 <label for="telefono">Teléfono</label> 
-              <input type="text"  class="form-control form-control-lg" [(ngModel)]="cliente.telefono" placeholder="Telefono" name="telefono" id="telefono"     >
+              <input type="text"  class="form-control form-control-lg" readonly="readonly" [(ngModel)]="cliente.telefono" placeholder="Telefono" name="telefono" id="telefono"     >
             </div>
       
       </div>
       <div class="col-lg-5 ">
           <div class="form-group ">
               <label for="nombre">Nombre</label> 
-            <input type="text" [(ngModel)]="cliente.nombres"  class="form-control form-control-lg" placeholder="Nombre" name="nombre" id="nombre"     >
+            <input type="text" [(ngModel)]="cliente.nombres" readonly="readonly"  class="form-control form-control-lg" placeholder="Nombre" name="nombre" id="nombre"     >
           </div>
       
               <div class="form-group ">
                   <label for="direccion">Dirección</label> 
-                <input type="text" [(ngModel)]="cliente.direccion"  class="form-control form-control-lg" placeholder="Direccion" name="direccion" id="direccion"     >
+                <input type="text" [(ngModel)]="cliente.direccion" readonly="readonly" class="form-control form-control-lg" placeholder="Direccion" name="direccion" id="direccion"     >
               </div>
         
         </div>
@@ -62,20 +62,22 @@
 <div class="col-lg-8 ">
   <table class="table">
 <tr>
-    <th>id</th>
+
   <th>Referencia</th>
   <th>NombreProducto</th>
   <th>ValorUnitario</th>
   <th>Cantidad</th>
   <th>ValorTotal</th>
+  <th></th>
 </tr>
 <tr *ngFor="let co of comprasConsulta">
-    <td>{{co.id}}</td>
+  
   <td>{{co.producto.id}}</td>
   <td>{{co.producto.nombre}}</td>
   <td>{{co.producto.precio}}</td>
   <td>{{co.cantidad}}</td>
   <td>{{co.subtotal}}</td>
+  <td><button class="btn btn-primary btn-block" style="height: 30px; width: 30px;font-size:10px; text-align: center;background: red" (click)="deleteCompra(co.id)">x</button></td>
   
 </tr>
    
@@ -94,7 +96,7 @@
     </div>
     <div class="form-group ">
       <label for="nombre">Nombre</label> 
-    <input type="text"  [(ngModel)]="producto.nombre"class="form-control form-control-lg" placeholder="Nombre" name="nombreProducto" id="nombreProducto"     >
+    <input type="text"  [(ngModel)]="producto.nombre" readonly="readonly" class="form-control form-control-lg" placeholder="Nombre" name="nombreProducto" id="nombreProducto"     >
   </div>
     <div class="form-group ">
         <label for="cantidad">Cantidad</label> 

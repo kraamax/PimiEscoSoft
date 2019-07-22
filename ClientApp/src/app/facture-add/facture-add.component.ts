@@ -7,6 +7,8 @@ import { FacturaService } from '../services/factura.service';
 import { Factura } from '../models/factura';
 import { Compra } from '../models/compra';
 import { CompraService } from '../services/compra.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MensajeModalComponent } from '../mensaje-modal/mensaje-modal.component';
 
 
 @Component({
@@ -26,16 +28,16 @@ id_compra:number;
   compra2: Compra;
   producto: Producto;
 
-  constructor(private clienteService: ClienteService, private productoService: ProductoService,private compraService:CompraService, private facturaService: FacturaService) { }
+  constructor(private clienteService: ClienteService, private productoService: ProductoService,private compraService:CompraService, private facturaService: FacturaService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.cliente = { id: null, nombres: '', apellidos: '', sexo: '', email: '', telefono: '', direccion: '' };
     this.id_compra=1;
-    this.producto = { id: null, nombre: '', precio: null }
+    this.producto = { id: null, nombre: '', precio: null,costo:null }
 
     this.factura=new Factura();
   
-
+this.id_compra=0;
     this.getAll();
   }
   getAll() {
@@ -89,36 +91,60 @@ if(this.factura.clienteId!=0){
    
   }
   addCompra() {
-    this.compra = new Compra();
-    this.compra2 = new Compra();
-    //
+    if(isNaN(parseInt(((document.getElementById("cantidad") as HTMLInputElement).value))))
+    {
+      var mesage =this.modalService.open(MensajeModalComponent);
+mesage.componentInstance.titulo="Atencion";
+mesage.componentInstance.body="Rellene los campos";
+    }else{
+      this.compra = new Compra();
+      this.compra2 = new Compra();
+      //
+  
+  
+      var num2 = ((document.getElementById("referencia") as HTMLInputElement).value);
+      this.compra.productoId =parseInt(num2) ;
+      this.compra2.producto=this.producto ;
+      this.compra2.productoId=this.producto.id;
+    this.compra2.precio=this.producto.precio;
+     // this.producto.id=0;
+      this.compra.precio=this.producto.precio;
+  //this.compra.producto=this.producto;
+  this.compra2.cantidad= parseInt(((document.getElementById("cantidad") as HTMLInputElement).value));
+      this.compra.cantidad = parseInt(((document.getElementById("cantidad") as HTMLInputElement).value));
+      this.compra.subtotal = this.compra.precio * this.compra.cantidad;
+      this.compra2.subtotal = this.compra2.precio * this.compra2.cantidad;
+      this.compra2.id=this.id_compra;
+      
+      // this.compraService.addCompra(this.compra).subscribe();
+      this.compras.push(this.compra);
+     // this.compra.producto=this.producto;
+      this.comprasConsulta.push(this.compra2);
+      this.id_compra=this.id_compra+1;
+  
+      console.log('se agrego');
+  
 
-
-    var num2 = ((document.getElementById("referencia") as HTMLInputElement).value);
-    this.compra.productoId =parseInt(num2) ;
-    this.compra2.producto=this.producto ;
-    this.compra2.productoId=this.producto.id;
-  this.compra2.precio=this.producto.precio;
-   // this.producto.id=0;
-    this.compra.precio=this.producto.precio;
-//this.compra.producto=this.producto;
-this.compra2.cantidad= parseInt(((document.getElementById("cantidad") as HTMLInputElement).value));
-    this.compra.cantidad = parseInt(((document.getElementById("cantidad") as HTMLInputElement).value));
-    this.compra.subtotal = this.compra.precio * this.compra.cantidad;
-    this.compra2.subtotal = this.compra2.precio * this.compra2.cantidad;
-    // this.compraService.addCompra(this.compra).subscribe();
-    this.compras.push(this.compra);
-   // this.compra.producto=this.producto;
-    this.comprasConsulta.push(this.compra2);
-
-    console.log('se agrego');
-
+    }
+   
 
   }
-  deleteCompra() {
-    if (this.compras.length > 0) {
-      this.compras.pop();
+  
+  deleteCompra(id:number) {
+var i;
+  i=0;
+  console.log(JSON.stringify(id));
+  this.comprasConsulta.forEach(element => {
+    if(element.id==id){
+this.comprasConsulta.splice(i,1);
     }
+    i++;
+  });
+     
+   
+    
+    
+    
   }
  /* obtenerCompras(){
     this.comprasFiltrado.length=0;

@@ -5,6 +5,8 @@ import { Cliente } from '../models/cliente';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of, observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MensajeModalComponent } from '../mensaje-modal/mensaje-modal.component';
 
 const httpOptions = {
 headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,11 +17,11 @@ headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 })
 export class ClienteService {
 
-  constructor(private http:HttpClient, @Inject('BASE_URL') private baseUrl:string) { }
+  constructor(private http:HttpClient, @Inject('BASE_URL') private baseUrl:string,private modalService: NgbModal) { }
 
   addCliente (cliente: Cliente): Observable<Cliente> {
     return this.http.post<Cliente>(this.baseUrl+'api/cliente', cliente, httpOptions).pipe(
-    tap((newCliente: Cliente) => console.log(`added newCliente w/ id=${newCliente.id}`)),
+    tap((newCliente: Cliente) => this.log(`added newCliente w/ id=${newCliente.id}`)),
     catchError(this.handleError<Cliente>('addCliente'))
     );
     }
@@ -63,6 +65,8 @@ private handleError<T> (operation = 'operation', result?: T) {
   }
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-  alert(`clienteService: ${message}`);
+    var mesage =this.modalService.open(MensajeModalComponent);
+    mesage.componentInstance.titulo="ClienteService:";
+    mesage.componentInstance.body=` ${message}`;
 }
 }

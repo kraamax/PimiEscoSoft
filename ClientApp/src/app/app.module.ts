@@ -21,6 +21,7 @@ import { ProductoListComponent } from './producto-list/producto-list.component';
 import { FactureAddComponent } from './facture-add/facture-add.component';
 import { FactureListComponent } from './facture-list/facture-list.component';
 import { FactureDetailsListComponent } from './facture-details-list/facture-details-list.component';
+import { MensajeModalComponent } from './mensaje-modal/mensaje-modal.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { FactureDetailsListComponent } from './facture-details-list/facture-deta
     ProductoListComponent,
     FactureAddComponent,
     FactureListComponent,
-    FactureDetailsListComponent
+    FactureDetailsListComponent,
+    MensajeModalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -51,6 +53,7 @@ import { FactureDetailsListComponent } from './facture-details-list/facture-deta
     ]),
     AppRoutingModule
   ],
+  entryComponents:[MensajeModalComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

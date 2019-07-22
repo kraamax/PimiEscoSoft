@@ -10,12 +10,14 @@ import { ProductoListComponent } from './producto-list/producto-list.component';
 import { FactureAddComponent } from './facture-add/facture-add.component';
 import { FactureListComponent } from './facture-list/facture-list.component';
 import { FactureDetailsListComponent } from './facture-details-list/facture-details-list.component';
-
-
+import { MensajeModalComponent } from './mensaje-modal/mensaje-modal.component';
 
 const routes: Routes = [
   {
-  path:'clienteadd',
+    path:'mensaje',
+    component:MensajeModalComponent
+    },
+  {path:'clienteadd',
   component:ClienteAddComponent
   },
   {

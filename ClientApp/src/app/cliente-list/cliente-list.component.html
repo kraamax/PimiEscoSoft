@@ -26,19 +26,19 @@
   
 <div class="row ">
     <div class="col-lg-5 ">
-<input type="text" class="form-control form-control-lg" placeholder="Identificacion" name="identificacion" id="identificacion"    style=" width: 200px; height:50px" >
+<input type="text" class="form-control form-control-lg" placeholder="Identificacion" name="identificacion" id="identificacion"     >
 </div>
 <div class="col-lg-1 "></div>
 <div class="col-lg-5 ">
  
-  <input type="button" class="btn btn-primary  btn-block" value="Consultar" name="" id="BtnConsultar"  style="width: 200px; height:50px ">
+  <button class="btn btn-primary  btn-block" style="width: 200px" (click)="myFunction()" > Consultar</button> 
  
 </div>
 
 </div>
 <br>
 <br>
-<table class="table">
+<table class="table" id="myTable">
     <tr>
       <th>Identificación</th>
       <th>Nombres</th>
@@ -50,7 +50,7 @@
       <th>Ver</th>
     </tr>
 <tr *ngFor="let c of clientes">
-      <td>{{c.id}}</td>
+      <td id="tdId">{{c.id}}</td>
       <td>{{c.nombres}}</td>
       <td>{{c.apellidos}}</td>
       <td>{{c.sexo}}</td>
