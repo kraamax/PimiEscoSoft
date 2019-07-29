@@ -18,7 +18,7 @@
      
         <div class="col-lg-6 ">
     <div class="form-group ">
-        <label for="referencia">Referencia</label> 
+        <label for="referencia" style="font-weight: bold" >Referencia</label> 
       
     </div>
   </div>
@@ -28,11 +28,22 @@
     <div class="col-lg-5 ">
 <input type="text" class="form-control form-control-lg" placeholder="Referencia" name="referencia" id="referencia"   >
 </div>
-<div class="col-lg-1 "></div>
+
 <div class="col-lg-5 ">
  
-  <button class="btn btn-primary  btn-block" (click)="myFunction()" >Consultar</button>
+  <button class="btn btn-primary  " style="font-size: 15px; width: 140px; color:white; height: 44px" (click)="myFunction()" >
+      <img src="assets/img/consulta.png">
+    Consultar</button>
  
+</div>
+<div class="col-lg-1 ">
+<button class="btn btn-primary  "  routerLink="/productoadd"   style="font-size: 15px; width: 130px; color:white;  height: 44px "  >
+           
+        
+  <img src="assets/img/mas.png">
+  Producto
+ 
+</button>
 </div>
 
 </div>

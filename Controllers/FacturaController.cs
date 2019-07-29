@@ -69,11 +69,12 @@ _context.SaveChanges();
 {
 return await _context.MaestroFactura.ToListAsync();
 }*/
+
 public IEnumerable<FacturaItem> Get()
         {
             _context.MaestroFactura.Include(t=>t.FacturaDetalles).ThenInclude(t=>t.Producto).ToList();
          
-         
+      
              return _context.MaestroFactura.Include(t=>t.Cliente);
 
         }

@@ -9,6 +9,7 @@ import { Compra } from '../models/compra';
 import { CompraService } from '../services/compra.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MensajeModalComponent } from '../mensaje-modal/mensaje-modal.component';
+import { stringify } from 'querystring';
 
 
 @Component({
@@ -27,7 +28,9 @@ id_compra:number;
   compra: Compra;
   compra2: Compra;
   producto: Producto;
+  Facturas: Factura[]=new Array();
 
+  ultimaFactura:Factura;
   constructor(private clienteService: ClienteService, private productoService: ProductoService,private compraService:CompraService, private facturaService: FacturaService, private modalService: NgbModal) { }
 
   ngOnInit() {
@@ -38,20 +41,48 @@ id_compra:number;
     this.factura=new Factura();
   
 this.id_compra=0;
-    this.getAll();
+   this.getAll();
+    this.getAllFacturas();
+    
+
+    
   }
   getAll() {
-    this.productoService.getAll().subscribe(productos => this.productos = productos);
+    this.productoService.getAll().subscribe(
+      productos => this.productos = productos);
   }
+  getAllFacturas(){
+this.facturaService.getAll().subscribe(
+ 
+
+    
+  
+    rest => {
+       this.Facturas = rest;
+       this.getUltimaFactura();
+    }
+
+ 
+)
+
+  }
+  getUltimaFactura(){
+  var max=0;
+  for (let entry of this.Facturas) {
+if(entry.id> max){
+  max=entry.id;
+}
+    }
+    
+    console.log(max);
+}
   BuscarCliente() {
     var num1 = ((document.getElementById("identificacion") as HTMLInputElement).value);
 
     this.clienteService.get(parseInt(num1))
       .subscribe(cliente => this.cliente = cliente);
 
-   
-
-  }
+    }
   add() {
   
 
@@ -62,11 +93,11 @@ this.factura.clienteId=this.cliente.id;
 
 //this.factura.cliente=this.cliente;
 this.factura.compras=this.compras;
-if(this.factura.clienteId!=0){
+if(this.factura.clienteId!=null){
   if(this.factura.compras.length>0 ){
-    /*this.compras.forEach(element => {
-      this.compraService.addCompra(element).subscribe();
-    });*/
+    this.factura.compras.forEach(element => {
+      element.id=0;
+    })
    console.log(JSON.stringify(this.factura));
     this.facturaService.addFactura(this.factura)
     .subscribe(task => {
@@ -115,6 +146,7 @@ mesage.componentInstance.body="Rellene los campos";
       this.compra.subtotal = this.compra.precio * this.compra.cantidad;
       this.compra2.subtotal = this.compra2.precio * this.compra2.cantidad;
       this.compra2.id=this.id_compra;
+      this.compra.id=this.id_compra;
       
       // this.compraService.addCompra(this.compra).subscribe();
       this.compras.push(this.compra);
@@ -131,8 +163,9 @@ mesage.componentInstance.body="Rellene los campos";
   }
   
   deleteCompra(id:number) {
-var i;
+var i,j;
   i=0;
+  j=0;
   console.log(JSON.stringify(id));
   this.comprasConsulta.forEach(element => {
     if(element.id==id){
@@ -140,11 +173,12 @@ this.comprasConsulta.splice(i,1);
     }
     i++;
   });
-     
-   
-    
-    
-    
+  this.compras.forEach(element => {
+    if(element.id==id){
+this.compras.splice(j,1);
+    }
+    j++;
+  });
   }
  /* obtenerCompras(){
     this.comprasFiltrado.length=0;

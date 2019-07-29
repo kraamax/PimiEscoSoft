@@ -26,9 +26,7 @@ mesage.componentInstance.body="Rellene los campos";
 
     }else{
       this.clienteService.addCliente(this.cliente)
-      .subscribe(task => {
-        alert('Se agrego una nueva tarea')
-      });
+      .subscribe();
 
     }
    
